@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>BLOG.iK.AM</title>
+    <script>
+        if (location.hash) {
+            // redirect for old paths
+            var path = location.hash.replace('#', '');
+            if (path.charAt(0) == '/') path = path.substr(1);
+            if (path.lastIndexOf('entries', 0) == 0 /* startsWith('entries') */) location.href = path;
+        }
+    </script>
+    <link rel="stylesheet" th:href="@{/components.css}" href="../static/components.css"/>
+    <link rel="stylesheet" th:href="@{/highlight/styles/github.css}"/>
+    <link rel="apple-touch-icon" sizes="57x57" th:href="@{/apple-icon-57x57.png}"/>
+    <link rel="apple-touch-icon" sizes="60x60" th:href="@{/apple-icon-60x60.png}"/>
+    <link rel="apple-touch-icon" sizes="72x72" th:href="@{/apple-icon-72x72.png}"/>
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/apple-icon-76x76.png}"/>
+    <link rel="apple-touch-icon" sizes="114x114" th:href="@{/apple-icon-114x114.png}"/>
+    <link rel="apple-touch-icon" sizes="120x120" th:href="@{/apple-icon-120x120.png}"/>
+    <link rel="apple-touch-icon" sizes="144x144" th:href="@{/apple-icon-144x144.png}"/>
+    <link rel="apple-touch-icon" sizes="152x152" th:href="@{/apple-icon-152x152.png}"/>
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/apple-icon-180x180.png}"/>
+    <link rel="icon" type="image/png" sizes="192x192" th:href="@{/android-icon-192x192.png}"/>
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/favicon-32x32.png}"/>
+    <link rel="icon" type="image/png" sizes="96x96" th:href="@{/favicon-96x96.png}"/>
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/favicon-16x16.png}"/>
+    <link rel="manifest" th:href="@{/manifest.json}"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" th:content="@{/ms-icon-144x144.png}"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="alternate" type="application/rss+xml" title="BLOG.IK.AM" href="https://feed.ik.am" />
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 class="title"><a class="type-dark-4" th:href="@{/}">BLOG.IK.AM</a></h1>
+
+        <p>making's memo</p>
+
+        <div class="form-group form-group-search">
+            <form id="search-form" method="get" class="search" th:action="@{/}">
+                <input class="form-control" name="q" type="search" placeholder="Search..."
+                       th:value="${param.q != null ? param.q[0] : ''}"/>
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+        <a th:href="@{/categories}" class="button button-mini button-primary">All Categories</a>
+        <a th:href="@{/tags}" class="button button-mini button-primary">All Tags</a>
+    </header>
+    <br/>
+    <section id="main">
+        <div layout:fragment="content">Fake</div>
+    </section>
+    <aside>
+        <section id="links">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="http://bit.ly/hajiboot">はじめてのSpring Boot (書きました)</a></li>
+                <li><a href="http://amzn.to/hajiboo">はじめてのBootstrap (書きました)</a></li>
+                <li><a href="https://github.com/making">Github</a></li>
+                <li><a href="https://twitter.com/making">Twitter</a></li>
+                <li><a href="http://qiita.com/making@github">Qiita</a></li>
+                <li><a href="http://www.slideshare.net/makingx">SlideShare</a></li>
+                <li><a href="http://amzn.to/JavaEE6">Beginning Java EE 6 GlassFish 3で始めるエンタープライズJava (一部翻訳しました)</a></li>
+            </ul>
+        </section>
+    </aside>
+    <hr class="divider-alternate-2"/>
+    <footer>Powered by <a href="https://github.com/categolj/categolj3-api">CategoLJ3</a></footer>
+</div>
+</body>
+</html>
