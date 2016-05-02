@@ -1,3 +1,9 @@
+# Depreceted
+
+This module is no longer maintained. See [blog-kotlin-ui](https://github.com/categolj/blog-kotlin-ui)
+
+----
+
 Start [eureka-server](../eureka-server) and [blog-api](../blog-api) in advance, then
 
     $ mvn clean package -Dmaven.test.skip=true
